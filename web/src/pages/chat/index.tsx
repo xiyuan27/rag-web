@@ -51,7 +51,7 @@ const { Text } = Typography;
 
 const Chat = () => {
   const { data: dialogList, loading: dialogLoading } = useFetchNextDialogList();
-  const simpleMode = authorizationUtil.isQueryRole();
+  const simpleMode = authorizationUtil.isNormalRole();
   const { onRemoveDialog } = useDeleteDialog();
   const { onRemoveConversation } = useDeleteConversation();
   const { handleClickDialog } = useClickDialogCard();

@@ -14,6 +14,9 @@ minio:
   user: 'xxxx'
   password: 'xxxx'
   host: 'localhost:9001'
+datafile:
+  storage: 'minio'
+  local_path: './datafiles'
 es:
   hosts: 'https://localhost:9200'
   username: 'elastic'
