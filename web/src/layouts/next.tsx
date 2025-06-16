@@ -5,7 +5,7 @@ import authorizationUtil from '@/utils/authorization-util';
 
 
 export default function NextLayout() {
-  const simpleMode = authorizationUtil.isQueryRole();
+  const simpleMode = authorizationUtil.isNormalRole();
 
   return (
     <section className="h-full flex flex-col text-colors-text-neutral-strong">
