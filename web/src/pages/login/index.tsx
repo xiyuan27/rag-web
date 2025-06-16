@@ -1,5 +1,6 @@
 import SvgIcon from '@/components/svg-icon';
 import { useAuth } from '@/hooks/auth-hooks';
+import authorizationUtil from '@/utils/authorization-util';
 import {
   useLogin,
   useLoginChannels,
@@ -36,7 +37,8 @@ const Login = () => {
   const { isLogin } = useAuth();
   useEffect(() => {
     if (isLogin) {
-      navigate('/knowledge');
+      const role = authorizationUtil.getUserRole();
+      navigate(role === 'query' ? '/chat' : '/knowledge');
     }
   }, [isLogin, navigate]);
 
@@ -68,7 +70,8 @@ const Login = () => {
           password: rsaPassWord,
         });
         if (code === 0) {
-          navigate('/knowledge');
+          const role = authorizationUtil.getUserRole();
+          navigate(role === 'query' ? '/chat' : '/knowledge');
         }
       } else {
         const code = await register({

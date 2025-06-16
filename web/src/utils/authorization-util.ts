@@ -13,7 +13,21 @@ const storage = {
     return localStorage.getItem(UserInfo);
   },
   getUserInfoObject: () => {
-    return JSON.parse(localStorage.getItem('userInfo') || '');
+    try {
+      return JSON.parse(localStorage.getItem('userInfo') || '{}');
+    } catch (e) {
+      return {};
+    }
+  },
+  getUserRole: (): string | undefined => {
+    try {
+      return JSON.parse(localStorage.getItem('userInfo') || '{}').role;
+    } catch (e) {
+      return undefined;
+    }
+  },
+  isQueryRole: () => {
+    return storage.getUserRole() === 'query';
   },
   setAuthorization: (value: string) => {
     localStorage.setItem(Authorization, value);

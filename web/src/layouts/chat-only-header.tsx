@@ -19,7 +19,6 @@ import { useFetchAppConf } from '@/hooks/logic-hooks';
 import { useNavigateWithFromState } from '@/hooks/route-hook';
 import { useFetchUserInfo, useListTenant } from '@/hooks/user-setting-hooks';
 import authorizationUtil from '@/utils/authorization-util';
-import { useSearchParams } from 'umi';
 import { TenantRole } from '@/pages/user-setting/constants';
 import { Routes } from '@/routes';
 import { camelCase } from 'lodash';
@@ -37,11 +36,9 @@ export function ChatOnlyHeader() {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const navigate = useNavigateWithFromState();
-  const [searchParams] = useSearchParams();
   const handleProfileClick = useCallback(() => {
-    const simple = searchParams.get('simple') === '1' ? '?simple=1' : '';
-    navigate(`/user-setting${simple}`);
-  }, [navigate, searchParams]);
+    navigate('/user-setting');
+  }, [navigate]);
 
   const changeLanguage = useChangeLanguage();
   const { setTheme, theme } = useTheme();
@@ -89,7 +86,7 @@ export function ChatOnlyHeader() {
     (path: string): MouseEventHandler =>
       (e) => {
         e.preventDefault();
-        navigate(`${path}?simple=1` as Routes);
+        navigate(path as Routes);
       },
     [navigate],
   );
@@ -122,7 +119,7 @@ export function ChatOnlyHeader() {
             value={item.name}
             key={item.name}
           >
-            <a href={`${item.path}?simple=1`}>
+            <a href={item.path}>
               <Flex
                 align="center"
                 gap={8}

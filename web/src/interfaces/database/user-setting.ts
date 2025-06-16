@@ -14,6 +14,7 @@ export interface IUserInfo {
   last_login_time: string;
   login_channel: string;
   nickname: string;
+  role: string;
   password: string;
   status: string;
   update_date: string;

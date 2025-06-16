@@ -66,11 +66,7 @@ export const useFetchDialogList = (pureFetch = false) => {
               handleClickDialog(data.data[0].id);
             }
           } else {
-              history.push(
-                currentQueryParameters.get('simple') === '1'
-                ? '/chat?simple=1'
-                : '/chat',
-            );
+              history.push('/chat');
           }
         }
       }

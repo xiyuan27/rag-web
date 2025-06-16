@@ -1,6 +1,7 @@
 import { Divider, Layout, theme } from 'antd';
 import React from 'react';
-import { Outlet, useLocation } from 'umi';
+import { Outlet } from 'umi';
+import authorizationUtil from '@/utils/authorization-util';
 import '../locales/config';
 import Header from './components/header';
 import { ChatOnlyHeader } from './chat-only-header';
@@ -14,9 +15,7 @@ const App: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  const location = useLocation();
-  const search = new URLSearchParams(location.search);
-  const simpleMode = search.get('simple') === '1';
+  const simpleMode = authorizationUtil.isQueryRole();
   return (
     <Layout className={styles.layout}>
       <Layout>

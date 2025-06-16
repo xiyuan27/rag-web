@@ -69,6 +69,7 @@ export const useLogin = () => {
           avatar: data.avatar,
           name: data.nickname,
           email: data.email,
+          role: data.role,
         };
         authorizationUtil.setItems({
           Authorization: authorization,
