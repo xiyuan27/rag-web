@@ -15,7 +15,7 @@ const App: React.FC = () => {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  const simpleMode = authorizationUtil.isQueryRole();
+  const simpleMode = authorizationUtil.isNormalRole();
   return (
     <Layout className={styles.layout}>
       <Layout>
