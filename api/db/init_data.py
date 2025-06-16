@@ -44,7 +44,6 @@ def init_superuser():
         "password": encode_to_base64("admin"),
         "nickname": "admin",
         "is_superuser": True,
-        "role": "admin",
         "email": "admin@ragflow.io",
         "creator": "system",
         "status": "1",

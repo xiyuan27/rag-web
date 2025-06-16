@@ -98,7 +98,10 @@ def login():
 
     user = UserService.query_user(email, password)
     if user:
+        user_tenant = UserTenantService.filter_by_tenant_and_user_id(user.id, user.id)
+        role = user_tenant.role if user_tenant else UserTenantRole.NORMAL
         response_data = user.to_json()
+        response_data["role"] = role
         user.access_token = get_uuid()
         login_user(user)
         user.update_time = (current_timestamp(),)
@@ -202,7 +205,6 @@ def oauth_callback(channel):
                         "email": user_info.email,
                         "avatar": avatar,
                         "nickname": user_info.nickname,
-                        "role": "normal",
                         "login_channel": channel,
                         "last_login_time": get_format_time(),
                         "is_superuser": False,
@@ -295,7 +297,6 @@ def github_callback():
                     "email": email_address,
                     "avatar": avatar,
                     "nickname": user_info["login"],
-                    "role": "normal",
                     "login_channel": "github",
                     "last_login_time": get_format_time(),
                     "is_superuser": False,
@@ -398,7 +399,6 @@ def feishu_callback():
                     "email": email_address,
                     "avatar": avatar,
                     "nickname": user_info["en_name"],
-                    "role": "normal",
                     "login_channel": "feishu",
                     "last_login_time": get_format_time(),
                     "is_superuser": False,
@@ -569,7 +569,11 @@ def user_profile():
               type: string
               description: User email.
     """
-    return get_json_result(data=current_user.to_dict())
+    user_tenant = UserTenantService.filter_by_tenant_and_user_id(current_user.id, current_user.id)
+    role = user_tenant.role if user_tenant else UserTenantRole.NORMAL
+    data = current_user.to_dict()
+    data["role"] = role
+    return get_json_result(data=data)
 
 
 def rollback_user_registration(user_id):
@@ -595,7 +599,6 @@ def rollback_user_registration(user_id):
 
 def user_register(user_id, user):
     user["id"] = user_id
-    user.setdefault("role", "normal")
     tenant = {
         "id": user_id,
         "name": user["nickname"] + "‘s Kingdom",
@@ -725,7 +728,6 @@ def user_add():
         "email": email_address,
         "nickname": nickname,
         "password": decrypt(req["password"]),
-        "role": "normal",
         "login_channel": "password",
         "last_login_time": get_format_time(),
         "is_superuser": False,
@@ -739,9 +741,13 @@ def user_add():
         if len(users) > 1:
             raise Exception(f"Same email: {email_address} exists!")
         user = users[0]
+        user_tenant = UserTenantService.filter_by_tenant_and_user_id(user.id, user.id)
+        role = user_tenant.role if user_tenant else UserTenantRole.NORMAL
+        response_data = user.to_json()
+        response_data["role"] = role
         login_user(user)
         return construct_response(
-            data=user.to_json(),
+            data=response_data,
             auth=user.get_id(),
             message=f"{nickname}, welcome aboard!",
         )
