@@ -98,7 +98,10 @@ def login():
 
     user = UserService.query_user(email, password)
     if user:
+        user_tenant = UserTenantService.filter_by_tenant_and_user_id(user.id, user.id)
+        role = user_tenant.role if user_tenant else UserTenantRole.NORMAL
         response_data = user.to_json()
+        response_data["role"] = role
         user.access_token = get_uuid()
         login_user(user)
         user.update_time = (current_timestamp(),)
@@ -566,7 +569,11 @@ def user_profile():
               type: string
               description: User email.
     """
-    return get_json_result(data=current_user.to_dict())
+    user_tenant = UserTenantService.filter_by_tenant_and_user_id(current_user.id, current_user.id)
+    role = user_tenant.role if user_tenant else UserTenantRole.NORMAL
+    data = current_user.to_dict()
+    data["role"] = role
+    return get_json_result(data=data)
 
 
 def rollback_user_registration(user_id):
@@ -734,9 +741,13 @@ def user_add():
         if len(users) > 1:
             raise Exception(f"Same email: {email_address} exists!")
         user = users[0]
+        user_tenant = UserTenantService.filter_by_tenant_and_user_id(user.id, user.id)
+        role = user_tenant.role if user_tenant else UserTenantRole.NORMAL
+        response_data = user.to_json()
+        response_data["role"] = role
         login_user(user)
         return construct_response(
-            data=user.to_json(),
+            data=response_data,
             auth=user.get_id(),
             message=f"{nickname}, welcome aboard!",
         )

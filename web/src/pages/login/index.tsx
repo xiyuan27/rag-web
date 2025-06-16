@@ -38,7 +38,7 @@ const Login = () => {
   useEffect(() => {
     if (isLogin) {
       const role = authorizationUtil.getUserRole();
-      navigate(role === 'query' ? '/chat' : '/knowledge');
+      navigate(role === 'normal' ? '/chat' : '/knowledge');
     }
   }, [isLogin, navigate]);
 
@@ -71,7 +71,7 @@ const Login = () => {
         });
         if (code === 0) {
           const role = authorizationUtil.getUserRole();
-          navigate(role === 'query' ? '/chat' : '/knowledge');
+          navigate(role === 'normal' ? '/chat' : '/knowledge');
         }
       } else {
         const code = await register({
