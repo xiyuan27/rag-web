@@ -465,6 +465,7 @@ class User(DataBaseModel, UserMixin):
     is_active = CharField(max_length=1, null=False, default="1", index=True)
     is_anonymous = CharField(max_length=1, null=False, default="0", index=True)
     login_channel = CharField(null=True, help_text="from which user login", index=True)
+    role = CharField(max_length=50, null=True, help_text="user role", index=True)
     status = CharField(max_length=1, null=True, help_text="is it validate(0: wasted, 1: validate)", default="1", index=True)
     is_superuser = BooleanField(null=True, help_text="is root", default=False, index=True)
 

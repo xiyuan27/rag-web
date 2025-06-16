@@ -202,6 +202,7 @@ def oauth_callback(channel):
                         "email": user_info.email,
                         "avatar": avatar,
                         "nickname": user_info.nickname,
+                        "role": "normal",
                         "login_channel": channel,
                         "last_login_time": get_format_time(),
                         "is_superuser": False,
@@ -294,6 +295,7 @@ def github_callback():
                     "email": email_address,
                     "avatar": avatar,
                     "nickname": user_info["login"],
+                    "role": "normal",
                     "login_channel": "github",
                     "last_login_time": get_format_time(),
                     "is_superuser": False,
@@ -396,6 +398,7 @@ def feishu_callback():
                     "email": email_address,
                     "avatar": avatar,
                     "nickname": user_info["en_name"],
+                    "role": "normal",
                     "login_channel": "feishu",
                     "last_login_time": get_format_time(),
                     "is_superuser": False,
@@ -592,6 +595,7 @@ def rollback_user_registration(user_id):
 
 def user_register(user_id, user):
     user["id"] = user_id
+    user.setdefault("role", "normal")
     tenant = {
         "id": user_id,
         "name": user["nickname"] + "‘s Kingdom",
@@ -721,6 +725,7 @@ def user_add():
         "email": email_address,
         "nickname": nickname,
         "password": decrypt(req["password"]),
+        "role": "normal",
         "login_channel": "password",
         "last_login_time": get_format_time(),
         "is_superuser": False,
