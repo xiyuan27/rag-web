@@ -23,7 +23,7 @@ const SideBar = () => {
   const { logout } = useLogout();
   const { t } = useTranslate('setting');
   const { version, fetchSystemVersion } = useFetchSystemVersion();
-  const simple = authorizationUtil.isQueryRole();
+  const simple = authorizationUtil.isNormalRole();
 
   useEffect(() => {
     if (location.host !== Domain) {
