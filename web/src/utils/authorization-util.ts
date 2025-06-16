@@ -26,8 +26,8 @@ const storage = {
       return undefined;
     }
   },
-  isQueryRole: () => {
-    return storage.getUserRole() === 'query';
+  isNormalRole: () => {
+    return storage.getUserRole() === 'normal';
   },
   setAuthorization: (value: string) => {
     localStorage.setItem(Authorization, value);

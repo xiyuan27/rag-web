@@ -21,8 +21,14 @@ from api.utils.file_utils import get_project_base_directory
 # Server
 RAG_CONF_PATH = os.path.join(get_project_base_directory(), "conf")
 
-# Get storage type and document engine from system environment variables
-STORAGE_IMPL_TYPE = os.getenv('STORAGE_IMPL', 'MINIO')
+# Load datafile storage config from service_conf.yaml
+DATAFILE_CFG = get_base_config("datafile", {})
+
+# Determine storage implementation from config or environment
+# config value may be lower case so normalize to upper case
+STORAGE_IMPL_TYPE = DATAFILE_CFG.get(
+    "storage", os.getenv("STORAGE_IMPL", "MINIO")
+).upper()
 DOC_ENGINE = os.getenv('DOC_ENGINE', 'elasticsearch')
 
 ES = {}
@@ -32,6 +38,10 @@ S3 = {}
 MINIO = {}
 OSS = {}
 OS = {}
+LOCAL_STORAGE_PATH = DATAFILE_CFG.get(
+    "local_path",
+    os.path.join(get_project_base_directory(), "datafiles"),
+)
 
 # Initialize the selected configuration data based on environment variables to solve the problem of initialization errors due to lack of configuration
 if DOC_ENGINE == 'elasticsearch':
@@ -49,6 +59,8 @@ elif STORAGE_IMPL_TYPE == 'MINIO':
     MINIO = decrypt_database_config(name="minio")
 elif STORAGE_IMPL_TYPE == 'OSS':
     OSS = get_base_config("oss", {})
+elif STORAGE_IMPL_TYPE == 'LOCAL':
+    LOCAL_STORAGE_PATH = DATAFILE_CFG.get("local_path", LOCAL_STORAGE_PATH)
 
 try:
     REDIS = decrypt_database_config(name="redis")
@@ -73,6 +85,10 @@ except Exception:
 def print_rag_settings():
     logging.info(f"MAX_CONTENT_LENGTH: {DOC_MAXIMUM_SIZE}")
     logging.info(f"MAX_FILE_COUNT_PER_USER: {int(os.environ.get('MAX_FILE_NUM_PER_USER', 0))}")
+    msg = f"**** USING {STORAGE_IMPL_TYPE} STORAGE ****"
+    logging.info(msg)
+    if STORAGE_IMPL_TYPE == 'LOCAL':
+        logging.info(f"Local storage path: {LOCAL_STORAGE_PATH}")
 
 
 def get_svr_queue_name(priority: int) -> str:
