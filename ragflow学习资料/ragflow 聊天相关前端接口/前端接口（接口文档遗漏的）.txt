@@ -1,0 +1,347 @@
+点赞图标：
+http://172.20.221.110:50006/rag/v1/conversation/thumbup
+
+post
+请求 {thumbup: true, message_id: "8b98b8b8-463b-44b4-b3c4-b7aba2be3d42",…}
+conversation_id: "657107c7a044439089ac902115067d01"
+message_id: "8b98b8b8-463b-44b4-b3c4-b7aba2be3d42" thumbup: true
+
+应答：
+{
+    "code": 0,
+    "data": {
+        "create_date": "Wed, 18 Jun 2025 20:57:55 GMT",
+        "create_time": 1750251475386,
+        "dialog_id": "9fc361f2499d11f0bee540a5ef52b7e9",
+        "id": "657107c7a044439089ac902115067d01",
+        "message": [
+            {
+                "content": "\u4f60\u597d\uff01 \u6211\u662f\u4f60\u7684\u52a9\u7406\uff0c\u6709\u4ec0\u4e48\u53ef\u4ee5\u5e2e\u5230\u4f60\u7684\u5417\uff1f",
+                "id": "43dd173a-12c4-4b56-addd-59a86323e318",
+                "role": "assistant"
+            },
+            {
+                "content": "C\u8231\u9000\u7968\u662f\u5982\u4f55\u89c4\u5b9a\u7684",
+                "doc_ids": [],
+                "id": "fab975d1-0d16-4470-a451-c258aa107005",
+                "role": "user"
+            },
+            {
+                "content": "<think>u7528\u3002",
+                "created_at": 1750322999.2931914,
+                "id": "fab975d1-0d16-4470-a451-c258aa107005",
+                "role": "assistant",
+                "thumbup": true
+            },
+            {
+                "content": "\u4e1c\u6d77\u822a\u7a7aC\u8231\u9000\u7968168\u5c0f\u65f6\u524d\u5982\u4f55\u6536\u8d39",
+                "doc_ids": [],
+                "id": "8b98b8b8-463b-44b4-b3c4-b7aba2be3d42",
+                "role": "user"
+            },
+            {
+                "content": "<think>\u597d\u7684\uff0c\u7528\u6237\u9\uff09 [ID:8]\u3002",
+                "created_at": 1751333839.7540598,
+                "id": "8b98b8b8-463b-44b4-b3c4-b7aba2be3d42",
+                "role": "assistant",
+                "thumbup": true
+            }
+        ],
+        "name": "\u4e1c\u6d77\u822a\u7a7a\u9000\u7968\u7684\u89c4\u5b9a",
+        "reference": [
+            {
+                "chunks": [
+                    {
+                        "content": "<table>\n<thead>\n<tr>\n</tr>\n</tbody>\n</table>",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": null,
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "4dac6674b5dee112",
+                        "image_id": "",
+                        "positions": []
+                    },
+                    {
+                        "content": "<table>>\n<td>75%</td>\n</tr>\n</tbody>\n</table>",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": null,
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "af733f814488dfb5",
+                        "image_id": "",
+                        "positions": []
+                    },
+                    {
+                        "content": "\u8be5 u8981\u6c42\u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": null,
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "9fc546a2bed6377b",
+                        "image_id": "",
+                        "positions": []
+                    },
+                    {
+                        "content": "\r### 6. \u4f7fu4e00:\r",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": null,
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "d869ae703bd29d92",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                4,
+                                3,
+                                3,
+                                3,
+                                3
+                            ]
+                        ]
+                    },
+                    {
+                        "content": "### \u4e2d\u8054\u822a(\....\u8457\u5dee\u5f02\u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": null,
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "4a64d147c9e5b4e1",
+                        "image_id": "",
+                        "positions": []
+                    },
+                    {
+                        "content": "### \u4e2d\u8054\u822a(\u56fd\u5185)....u65f6.....\u5dee\u5f02\u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": null,
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "fcdd5e8f86074d57",
+                        "image_id": "",
+                        "positions": []
+                    },
+                    {
+                        "content": "### \u4e2d\u8054\u822a(\u56fd\u5185)\u4e0d\u9000\u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": null,
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "f8ee70f029108f5c",
+                        "image_id": "",
+                        "positions": []
+                    },
+                    {
+                        "content": "### \u4e2d\u8054\\u7ed3\u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": null,
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "6679fe8e46324543",
+                        "image_id": "",
+                        "positions": []
+                    }
+                ],
+                "doc_aggs": [
+                    {
+                        "count": 8,
+                        "doc_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "doc_name": "\u4e2d\u8054\u822a.md"
+                    }
+                ],
+                "total": 19
+            },
+            {
+                "chunks": [
+                    {
+                        "content": "\r\u65c5\u5f71\u54cd\u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "bc5d5ab7557b11f0b12f010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "41ce73101512a4bf",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                8,
+                                7,
+                                7,
+                                7,
+                                7
+                            ]
+                        ],
+                        "similarity": 0.29986701296604423,
+                        "term_similarity": 0.18612402763671929,
+                        "url": null,
+                        "vector_similarity": 0.5652673120678025
+                    },
+                    {
+                        "content": "\u3010\u6587\\u7528\u8868",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "bc5d5ab7557b11f0b12f010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "3f608c4696279890",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                9,
+                                8,
+                                8,
+                                8,
+                                8
+                            ]
+                        ],
+                        "similarity": 0.29080208644172933,
+                        "term_similarity": 0.1849565866425115,
+                        "url": null,
+                        "vector_similarity": 0.5377749193065711
+                    },
+                    {
+                        "content": "    2. \u82e5\u5f53248) > 6.\u673a\u7968\u9519\u8d2d\u3011",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "bc5d5ab7557b11f0b12f010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "b0250a27d94b53d7",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                5,
+                                4,
+                                4,
+                                4,
+                                4
+                            ]
+                        ],
+                        "similarity": 0.2741966975565171,
+                        "term_similarity": 0.12391027453172088,
+                        "url": null,
+                        "vector_similarity": 0.6248650179477083
+                    },
+                    {
+                        "content": "- \u82e5\u539f### 8. \u4e2d\u9014\u505c\u7559/\u514d\u8d39\u9152\u5e97\u6761\u6b3e\r",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "bc437671557b11f0b17d010101010000",
+                        "document_name": "\u963f\u62c9\u4f2f\u901a\u7968.md",
+                        "id": "d06cafc0dec6a937",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                3,
+                                2,
+                                2,
+                                2,
+                                2
+                            ]
+                        ],
+                        "similarity": 0.26729579799412806,
+                        "term_similarity": 0.15319795766663785,
+                        "url": null,
+                        "vector_similarity": 0.5335240920916051
+                    },
+                    {
+                        "content": "<table>\n<thead>\n<tr>\n<th>/td>\n<td>60%</td>\n</tr>\n</tbody>\n</table>",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "bc5d5ab7557b11f0b12f010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "da74295de1f65356",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.23466840360081315,
+                        "term_similarity": 0.09098420456163947,
+                        "url": null,
+                        "vector_similarity": 0.5699315346922184
+                    },
+                    {
+                        "content": "<table>\n<thead>\n<tr>\n<th>\n</tr>\n</tbody>\n</table>",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "bc5d5ab7557b11f0b12f010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "b898428ed503c73b",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.23372383243733014,
+                        "term_similarity": 0.09098420456163947,
+                        "url": null,
+                        "vector_similarity": 0.5667829641472751
+                    },
+                    {
+                        "content": "\r\u5141\u8bb8\u6b3e > 11. \u8fd0\\u5165",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "bc437671557b11f0b17d010101010000",
+                        "document_name": "\u963f\u62c9\u4f2f\u901a\u7968.md",
+                        "id": "830535c5ab175d11",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                4,
+                                3,
+                                3,
+                                3,
+                                3
+                            ]
+                        ],
+                        "similarity": 0.22343511805824157,
+                        "term_similarity": 0.0945085813961013,
+                        "url": null,
+                        "vector_similarity": 0.5242637036032356
+                    },
+                    {
+                        "content": "\u3010\u6587\u6863.....\u8231\r",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "bc437671557b11f0b17d010101010000",
+                        "document_name": "\u963f\u62c9\u4f2f\u901a\u7968.md",
+                        "id": "808222ca97e875da",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                2,
+                                1,
+                                1,
+                                1,
+                                1
+                            ]
+                        ],
+                        "similarity": 0.21671028545091964,
+                        "term_similarity": 0.0904480062464102,
+                        "url": null,
+                        "vector_similarity": 0.5113222702614416
+                    }
+                ],
+                "doc_aggs": [
+                    {
+                        "count": 5,
+                        "doc_id": "bc5d5ab7557b11f0b12f010101010000",
+                        "doc_name": "\u4e2d\u8054\u822a.md"
+                    },
+                    {
+                        "count": 3,
+                        "doc_id": "bc437671557b11f0b17d010101010000",
+                        "doc_name": "\u963f\u62c9\u4f2f\u901a\u7968.md"
+                    }
+                ],
+                "total": 10
+            }
+        ],
+        "update_date": "Tue, 01 Jul 2025 21:11:25 GMT",
+        "update_time": 1751375485145,
+        "user_id": "e08c2142481511f0b121010101010000"
+    },
+    "message": "success"
+}
+
+
+http://172.20.221.110:50006/rag/v1/conversation/thumbup
+post
+{
+  "thumbup": false,
+  "feedback": "识别结果不行啊，具体是.....",
+  "message_id": "8b98b8b8-463b-44b4-b3c4-b7aba2be3d42",
+  "conversation_id": "657107c7a044439089ac902115067d01"
+}
+
+应答：和上面点赞一样,区别是某个记录的 "thumbup": false
