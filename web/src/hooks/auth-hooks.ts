@@ -16,7 +16,7 @@ export const useOAuthCallback = () => {
     if (error) {
       message.error(error);
       setTimeout(() => {
-        navigate('/login');
+        navigate('/rag/login');
         newQueryParameters.delete('error');
         setSearchParams(newQueryParameters);
       }, 1000);
@@ -28,7 +28,7 @@ export const useOAuthCallback = () => {
       authorizationUtil.setAuthorization(auth);
       newQueryParameters.delete('auth');
       setSearchParams(newQueryParameters);
-      navigate('/knowledge');
+      navigate('/rag/knowledge');
     }
   }, [
     error,
@@ -47,7 +47,18 @@ export const useAuth = () => {
   const [isLogin, setIsLogin] = useState<Nullable<boolean>>(null);
 
   useEffect(() => {
-    setIsLogin(!!authorizationUtil.getAuthorization() || !!auth);
+    // 添加延迟检查，确保localStorage操作完成
+    const checkAuth = () => {
+      setIsLogin(!!authorizationUtil.getAuthorization() || !!auth);
+    };
+
+    // 立即检查
+    checkAuth();
+
+    // 短延迟后再次检查，处理清除操作的时序问题
+    const timer = setTimeout(checkAuth, 50);
+
+    return () => clearTimeout(timer);
   }, [auth]);
 
   return { isLogin };

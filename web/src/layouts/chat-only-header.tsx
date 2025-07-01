@@ -10,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Flex, Radio } from 'antd';
+import { Flex, Radio, theme } from 'antd';
 import headerStyles from './components/header/index.less';
 import type { MouseEventHandler } from 'react';
 import { LanguageList, LanguageMap } from '@/constants/common';
@@ -19,7 +19,6 @@ import { useFetchAppConf } from '@/hooks/logic-hooks';
 import { useNavigateWithFromState } from '@/hooks/route-hook';
 import { useFetchUserInfo, useListTenant } from '@/hooks/user-setting-hooks';
 import authorizationUtil from '@/utils/authorization-util';
-import { useSearchParams } from 'umi';
 import { TenantRole } from '@/pages/user-setting/constants';
 import { Routes } from '@/routes';
 import { camelCase } from 'lodash';
@@ -37,14 +36,13 @@ export function ChatOnlyHeader() {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const navigate = useNavigateWithFromState();
-  const [searchParams] = useSearchParams();
   const handleProfileClick = useCallback(() => {
-    const simple = searchParams.get('simple') === '1' ? '?simple=1' : '';
-    navigate(`/user-setting${simple}`);
-  }, [navigate, searchParams]);
+    navigate('/rag/user-setting');
+  }, [navigate]);
 
   const changeLanguage = useChangeLanguage();
-  const { setTheme, theme } = useTheme();
+  const { setTheme, theme: themeMode } = useTheme();
+  const { token: { colorBgContainer } } = theme.useToken();
 
   const {
     data: { language = 'English', avatar, nickname },
@@ -70,8 +68,8 @@ export function ChatOnlyHeader() {
   }));
 
   const onThemeClick = React.useCallback(() => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  }, [setTheme, theme]);
+    setTheme(themeMode === 'dark' ? 'light' : 'dark');
+  }, [setTheme, themeMode]);
   const appConf = useFetchAppConf();
 
   const tagsData = useMemo(
@@ -89,7 +87,7 @@ export function ChatOnlyHeader() {
     (path: string): MouseEventHandler =>
       (e) => {
         e.preventDefault();
-        navigate(`${path}?simple=1` as Routes);
+        navigate(path as Routes);
       },
     [navigate],
   );
@@ -99,7 +97,14 @@ export function ChatOnlyHeader() {
   }, [navigate]);
 
   return (
-    <section className="p-5 pr-14 flex justify-between items-center ">
+    <section 
+      className="p-5 pr-14 flex justify-between items-center"
+      style={{
+        background: colorBgContainer,
+        height: '72px',
+        padding: '0 16px'
+      }}
+    >
       <div className="flex items-center gap-4">
         <img
           src={'/logo.svg'}
@@ -109,20 +114,21 @@ export function ChatOnlyHeader() {
         />
 	<span className={styles.appName}>{appConf.appName}</span>
       </div>
-      <Radio.Group
+      {/* 隐藏聊天tab */}
+      {/* <Radio.Group
         buttonStyle="solid"
         className={
-          theme === 'dark' ? headerStyles.radioGroupDark : headerStyles.radioGroup
+          themeMode === 'dark' ? headerStyles.radioGroupDark : headerStyles.radioGroup
         }
         value={currentPath}
       >
         {tagsData.map((item) => (
           <Radio.Button
-            className={`${theme === 'dark' ? 'dark' : 'light'} first last`}
+            className={`${themeMode === 'dark' ? 'dark' : 'light'} first last`}
             value={item.name}
             key={item.name}
           >
-            <a href={`${item.path}?simple=1`}>
+            <a href={item.path}>
               <Flex
                 align="center"
                 gap={8}
@@ -138,7 +144,7 @@ export function ChatOnlyHeader() {
             </a>
           </Radio.Button>
         ))}
-      </Radio.Group>
+      </Radio.Group> */}
       <div className="flex items-center gap-5 text-text-badge">
         <DropdownMenu>
           <DropdownMenuTrigger>
@@ -157,7 +163,7 @@ export function ChatOnlyHeader() {
         </DropdownMenu>
 
         <Button variant={'ghost'} onClick={onThemeClick}>
-          {theme === 'light' ? <Sun /> : <Moon />}
+          {themeMode === 'light' ? <Sun /> : <Moon />}
         </Button>
         <div className="relative">
           

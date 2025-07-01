@@ -71,7 +71,7 @@ export function Header() {
   }, [setTheme, theme]);
 
   const handleBellClick = useCallback(() => {
-    navigate('/user-setting/team');
+    navigate('/rag/user-setting/team');
   }, [navigate]);
 
   const tagsData = useMemo(

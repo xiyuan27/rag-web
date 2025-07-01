@@ -6,7 +6,8 @@ import { useFetchSystemVersion } from '@/hooks/user-setting-hooks';
 import type { MenuProps } from 'antd';
 import { Flex, Menu } from 'antd';
 import React, { useEffect, useMemo } from 'react';
-import { useNavigate, useSearchParams } from 'umi';
+import { useNavigate } from 'umi';
+import authorizationUtil from '@/utils/authorization-util';
 import {
   UserSettingBaseKey,
   UserSettingIconMap,
@@ -19,11 +20,10 @@ type MenuItem = Required<MenuProps>['items'][number];
 const SideBar = () => {
   const navigate = useNavigate();
   const pathName = useSecondPathName();
-  const [searchParams] = useSearchParams();
   const { logout } = useLogout();
   const { t } = useTranslate('setting');
   const { version, fetchSystemVersion } = useFetchSystemVersion();
-  const simple = searchParams.get('simple') === '1';
+  const simple = authorizationUtil.isNormalRole();
 
   useEffect(() => {
     if (location.host !== Domain) {
@@ -69,8 +69,7 @@ const items: MenuItem[] = useMemo(() => {
     if (key === UserSettingRouteKey.Logout) {
       logout();
     } else {
-      const simpleParam = simple ? '?simple=1' : '';
-      navigate(`/${UserSettingBaseKey}/${key}${simpleParam}`);
+      navigate(`/${UserSettingBaseKey}/${key}`);
     }
   };
 

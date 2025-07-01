@@ -8,6 +8,7 @@ import { EmailConfiguration } from './configuration/email';
 import { KnowledgeGraphConfiguration } from './configuration/knowledge-graph';
 import { LawsConfiguration } from './configuration/laws';
 import { ManualConfiguration } from './configuration/manual';
+import { MdChapterConfiguration } from './configuration/mdchapter';
 import { NaiveConfiguration } from './configuration/naive';
 import { OneConfiguration } from './configuration/one';
 import { PaperConfiguration } from './configuration/paper';
@@ -34,6 +35,7 @@ const ConfigurationComponentMap = {
   [DocumentParserType.Email]: EmailConfiguration,
   [DocumentParserType.Tag]: TagConfiguration,
   [DocumentParserType.KnowledgeGraph]: KnowledgeGraphConfiguration,
+  [DocumentParserType.MdChapter]: MdChapterConfiguration,
 };
 
 function EmptyComponent() {
@@ -48,10 +50,17 @@ export function ChunkMethodForm() {
     name: 'parser_id',
   });
 
+  console.log('[mdChapter问题排查] ChunkMethodForm parserId:', finalParserId);
+
   const ConfigurationComponent = useMemo(() => {
-    return finalParserId
+    const component = finalParserId
       ? ConfigurationComponentMap[finalParserId]
       : EmptyComponent;
+    
+    console.log('[mdChapter问题排查] ConfigurationComponent:', component, 'for parserId:', finalParserId);
+    console.log('[mdChapter问题排查] Available keys:', Object.keys(ConfigurationComponentMap));
+    
+    return component;
   }, [finalParserId]);
 
   return (

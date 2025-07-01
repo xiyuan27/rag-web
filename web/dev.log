@@ -1,0 +1,67 @@
+
+> dev
+> cross-env UMI_DEV_SERVER_COMPRESS=none umi dev
+
+error - Error: 
+You installed esbuild for another platform than the one you're currently using.
+This won't work because esbuild is written with native code and needs to
+install a platform-specific binary executable.
+
+Specifically the "@esbuild/win32-x64" package is present but this platform
+needs the "@esbuild/linux-x64" package instead. People often get into this
+situation by installing esbuild on Windows or macOS and copying "node_modules"
+into a Docker image that runs Linux, or by copying "node_modules" between
+Windows and WSL environments.
+
+If you are installing with npm, you can try not copying the "node_modules"
+directory when you copy the files over, and running "npm ci" or "npm install"
+on the destination platform after the copy. Or you could consider using yarn
+instead of npm which has built-in support for installing a package on multiple
+platforms simultaneously.
+
+If you are installing with yarn, you can try listing both this platform and the
+other platform in your ".yarnrc.yml" file using the "supportedArchitectures"
+feature: https://yarnpkg.com/configuration/yarnrc/#supportedArchitectures
+Keep in mind that this means multiple copies of esbuild will be present.
+
+Another alternative is to use the "esbuild-wasm" package instead, which works
+the same way on all platforms. But it comes with a heavy performance cost and
+can sometimes be 10x slower than the "esbuild" package, so you may also not
+want to do that.
+
+    at generateBinPath (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/esbuild/lib/main.js:1874:17)
+    at esbuildCommandAndArgs (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/esbuild/lib/main.js:1955:33)
+    at ensureServiceIsRunning (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/esbuild/lib/main.js:2119:25)
+    at startSyncServiceWorker (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/esbuild/lib/main.js:2322:19)
+    at Object.<anonymous> (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/esbuild/lib/main.js:2363:3)
+    at Module._compile (node:internal/modules/cjs/loader:1529:14)
+    at Object..js (node:internal/modules/cjs/loader:1613:10)
+    at Module.load (node:internal/modules/cjs/loader:1275:32)
+    at Function._load (node:internal/modules/cjs/loader:1096:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+fatal - Error: Parse config file failed: [/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/.umirc.ts]
+    at Config.getUserConfig (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/@umijs/core/dist/config/config.js:161:17)
+    at Config.getUserConfig (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/@umijs/core/dist/config/config.js:58:19)
+    at Service.run (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/@umijs/core/dist/service/service.js:233:37)
+    at Service.run2 (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/umi/dist/service/service.js:65:23)
+    at /mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/umi/dist/cli/forkedDev.js:23:19
+    at Object.<anonymous> (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/umi/dist/cli/forkedDev.js:36:3)
+    at Module._compile (node:internal/modules/cjs/loader:1529:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+    at Module.load (node:internal/modules/cjs/loader:1275:32)
+    at Module._load (node:internal/modules/cjs/loader:1096:12) {
+  [cause]: Error: Parse file failed: [/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/.umirc.ts]
+      at transform (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/@umijs/core/node_modules/@umijs/utils/dist/register.js:53:11)
+      at revert.ext (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/@umijs/core/node_modules/@umijs/utils/dist/register.js:60:27)
+      at Module._compile (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/@umijs/core/node_modules/@umijs/utils/compiled/pirates/index.js:1:1609)
+      at Module._extensions..js (node:internal/modules/cjs/loader:1613:10)
+      at Object.newLoader [as .ts] (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/@umijs/core/node_modules/@umijs/utils/compiled/pirates/index.js:1:1684)
+      at Module.load (node:internal/modules/cjs/loader:1275:32)
+      at Module._load (node:internal/modules/cjs/loader:1096:12)
+      at Module.require (node:internal/modules/cjs/loader:1298:19)
+      at require (node:internal/modules/helpers:182:18)
+      at Config.getUserConfig (/mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/@umijs/core/dist/config/config.js:156:54)
+}
+fatal - A complete log of this run can be found in:
+fatal - /mnt/f/LiuYuan/wsl/Ubuntu/ragflow/web/node_modules/.cache/logger/umi.log
+fatal - Consider reporting a GitHub issue on https://github.com/umijs/umi/issues

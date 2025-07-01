@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { IOperatorForm } from '../../interface';
 import DynamicVariablesForm from './dynamic-variables';
 
-loader.config({ paths: { vs: '/vs' } });
+loader.config({ paths: { vs: '/rag/vs' } });
 
 enum Method {
   GET = 'GET',

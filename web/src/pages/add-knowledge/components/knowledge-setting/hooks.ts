@@ -91,6 +91,7 @@ export const useHandleChunkMethodChange = () => {
 
   useEffect(() => {
     console.log('🚀 ~ useHandleChunkMethodChange ~ chunkMethod:', chunkMethod);
+    console.log('[mdChapter问题排查] chunkMethod 变化为:', chunkMethod);
   }, [chunkMethod]);
 
   return { form, chunkMethod };

@@ -45,14 +45,13 @@ import { useSetSelectedRecord } from '@/hooks/logic-hooks';
 import { IDialog } from '@/interfaces/database/chat';
 import { PictureInPicture2 } from 'lucide-react';
 import styles from './index.less';
-import { useSearchParams } from 'umi';
+import authorizationUtil from '@/utils/authorization-util';
 
 const { Text } = Typography;
 
 const Chat = () => {
   const { data: dialogList, loading: dialogLoading } = useFetchNextDialogList();
-  const [searchParams] = useSearchParams();
-  const simpleMode = searchParams.get('simple') === '1';
+  const simpleMode = authorizationUtil.isNormalRole();
   const { onRemoveDialog } = useDeleteDialog();
   const { onRemoveConversation } = useDeleteConversation();
   const { handleClickDialog } = useClickDialogCard();

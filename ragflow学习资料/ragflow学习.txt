@@ -1,0 +1,35 @@
+https://mp.weixin.qq.com/s/34IqQdB8BfB6VKXmE_8bXA   ragflow数据库分析
+
+ragflow 代码解析
+https://banshan.tech/2023/12/rag-flow/
+
+对话补全接口
+实现完整的RAG对话流程
+根据对话配置初始化所需的模型实例
+
+ragflow\api\apps\conversation_app.py
+@manager.route("/completion", methods=["POST"])  # noqa: F821
+@login_required
+@validate_request("conversation_id", "messages")
+def completion():
+   @manager.route("/completion", methods=["POST"])  # noqa: F821
+@login_required
+@validate_request("conversation_id", "messages")
+def completion():
+    """
+    对话补全接口，主要功能如下：
+       1.消息过滤：忽略系统消息和前置的助手消息，整理出有效对话历史。
+       2.获取会话与对话信息：通过conversation_id获取会话对象，并从中获取对应的对话配置。
+       3,处理引用数据（reference）：对会话中的引用数据进行结构化处理或初始化。
+       4.流式/非流式响应支持：
+          若为流式（默认），使用chat()生成回复并逐段返回，设置SSE（Server-Sent Events）响应头。
+          若为非流式，直接获取完整回复并返回JSON结果。
+       5.异常处理：捕获执行过程中的错误并返回相应的错误信息。
+    """
+    print("对话补全接口")
+
+
+\ragflow\api\db\services\dialog_service.py
+def chat(dialog, messages, stream=True, **kwargs):
+    print("实现完整的RAG对话流程")
+

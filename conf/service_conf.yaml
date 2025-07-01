@@ -1,0 +1,25 @@
+ragflow:
+  host: 0.0.0.0
+  http_port: 9380
+mysql:
+  name: 'rag_flow'
+  user: 'root'
+  password: 'abc#123'
+  host: 'localhost'
+  port: 3306
+  max_connections: 900
+  stale_timeout: 300
+  max_allowed_packet: 1073741824
+# storage: 'LOCAL', 'MINIO', 'OSS', 'AZURE_SPN', 'AZURE_SAS','AWS_S3'
+storage_impl: 'LOCAL'
+local_storage_path: './datafiles'
+es:
+  hosts: 'https://127.0.0.1:9200'
+  username: 'elastic'
+  password: 'ri78QmCSg-oCo79*epuJ'
+redis:
+  db: 1
+  password: '123456'
+  host: '172.20.221.110:7001'
+
+

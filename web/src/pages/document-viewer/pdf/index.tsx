@@ -26,7 +26,7 @@ const PdfPreviewer = ({ url }: IProps) => {
         url={url}
         httpHeaders={httpHeaders}
         beforeLoad={<Skeleton active />}
-        workerSrc="/pdfjs-dist/pdf.worker.min.js"
+        workerSrc="/rag/pdfjs-dist/pdf.worker.min.js"
         errorMessage={<FileError>{error}</FileError>}
         onError={(e) => {
           console.warn(e);

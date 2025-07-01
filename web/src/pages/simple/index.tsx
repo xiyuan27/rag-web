@@ -3,7 +3,7 @@ import { history } from 'umi';
 
 export default function SimpleHome() {
   useEffect(() => {
-    history.replace('/chat?simple=1');
+    history.replace('/chat');
   }, []);
   return null;
 }

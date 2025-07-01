@@ -80,6 +80,7 @@ const ParserListMap = new Map([
       DocumentParserType.Naive,
       DocumentParserType.Qa,
       DocumentParserType.KnowledgeGraph,
+      DocumentParserType.MdChapter,
     ],
   ],
   [['json'], [DocumentParserType.Naive, DocumentParserType.KnowledgeGraph]],

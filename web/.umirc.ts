@@ -9,14 +9,14 @@ export default defineConfig({
   outputPath: 'dist',
   alias: { '@parent': path.resolve(__dirname, '../') },
   npmClient: 'npm',
-  base: '/',
+  base: '/rag/',
   routes,
-  publicPath: '/',
+  publicPath: '/rag/',
   esbuildMinifyIIFE: true,
   icons: {},
   hash: true,
-  favicons: ['/logo.svg'],
-  headScripts: [{ src: '/iconfont.js', defer: true }],
+  favicons: ['/rag/logo.svg'],
+  headScripts: [{ src: '/rag/iconfont.js', defer: true }],
   clickToComponent: {},
   history: {
     type: 'browser',
@@ -38,12 +38,12 @@ export default defineConfig({
   ],
   proxy: [
     {
-      context: ['/api', '/v1'],
+      context: ['/rag/v1', '/rag/api'],
       target: 'http://127.0.0.1:9380/',
       changeOrigin: true,
       ws: true,
       logger: console,
-      // pathRewrite: { '^/v1': '/v1' },
+      pathRewrite: { '^/rag': '' },
     },
   ],
 

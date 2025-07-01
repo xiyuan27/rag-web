@@ -88,12 +88,7 @@ export function ChunkMethodDialog({
 }: IProps) {
   const { t } = useTranslation();
 
-  const { parserList } = useFetchParserListOnMount(
-    documentId,
-    parserId,
-    documentExtension,
-    // form,
-  );
+  const { parserList } = useFetchParserListOnMount(documentExtension);
 
   const { data: knowledgeDetails } = useFetchKnowledgeBaseConfiguration();
 
@@ -167,15 +162,17 @@ export function ChunkMethodDialog({
 
   const showOne = useMemo(() => {
     return (
-      isPdf &&
-      hidePagesChunkMethods
-        .filter((x) => x !== DocumentParserType.One)
-        .every((x) => x !== selectedTag)
+      (isPdf &&
+        hidePagesChunkMethods
+          .filter((x) => x !== DocumentParserType.One)
+          .every((x) => x !== selectedTag)) ||
+      selectedTag === DocumentParserType.MdChapter
     );
   }, [selectedTag, isPdf]);
 
   const showMaxTokenNumber =
     selectedTag === DocumentParserType.Naive ||
+    selectedTag === DocumentParserType.MdChapter ||
     selectedTag === DocumentParserType.KnowledgeGraph;
 
   const showEntityTypes = selectedTag === DocumentParserType.KnowledgeGraph;

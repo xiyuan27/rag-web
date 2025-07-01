@@ -1,0 +1,1023 @@
+以下请求，头部header都携带的有authorization字段
+http://127.0.0.1/v1/getAppInfo
+  请求方法：get
+  请求参数：无
+  应答参数：
+
+{
+    "code": 0,
+    "data": {
+        "appName":"KnowledgeBase",
+    },
+    "message": "success"
+}
+
+
+  请求方法：
+  请求参数：无
+  应答参数：
+
+http://127.0.0.1/v1/user/info
+
+  请求方法：get
+  请求参数：无
+  应答参数：
+{
+    "code": 0,
+    "data": {
+        "access_token": "b6cbe756559311f0bb99000c29d1a431",
+        "avatar": null,
+        "color_schema": "Bright",
+        "create_date": "Fri, 13 Jun 2025 13:18:46 GMT",
+        "create_time": 1749791926098,
+        "email": "test@abc.com",
+        "id": "de9f5c834e69421083ceb2cb9641d241",
+        "is_active": "1",
+        "is_anonymous": "0",
+        "is_authenticated": "1",
+        "is_superuser": true,
+        "language": "Chinese",
+        "last_login_time": "Fri, 13 Jun 2025 13:18:44 GMT",
+        "login_channel": "password",
+        "nickname": "abc456",
+        "role": "normal",
+        "status": "1",
+        "timezone": "UTC+8\tAsia/Shanghai",
+        "update_date": "Mon, 30 Jun 2025 17:22:16 GMT",
+        "update_time": 1751275336385
+    },
+    "message": "success"
+}
+
+http://127.0.0.1/v1/user/tenant_info
+  请求方法：get
+  请求参数：无
+  应答参数：
+{
+    "code": 0,
+    "data": {
+        "asr_id": "",
+        "embd_id": "text-embedding-v4@Tongyi-Qianwen",
+        "img2txt_id": "qwen-vl-plus@Tongyi-Qianwen",
+        "llm_id": "qwen-plus@Tongyi-Qianwen",
+        "name": "xiyuan27\u2018s Kingdom",
+        "parser_ids": "naive:General,qa:Q&A,resume:Resume,manual:Manual,table:Table,paper:Paper,book:Book,laws:Laws,presentation:Presentation,picture:Picture,one:One,audio:Audio,email:Email,tag:Tag",
+        "rerank_id": "gte-rerank@Tongyi-Qianwen",
+        "role": "normal",
+        "tenant_id": "e08c2142481511f0b121010101010000",
+        "tts_id": null
+    },
+    "message": "success"
+}
+
+
+http://127.0.0.1/v1/dialog/list
+  请求方法：get
+  请求参数：无
+  应答参数：
+{
+    "code": 0,
+    "data": [
+        {
+            "create_date": "Thu, 26 Jun 2025 09:15:30 GMT",
+            "create_time": 1750900530757,
+            "description": "A helpful dialog",
+            "do_refer": "1",
+            "icon": "",
+            "id": "0d3bb0a6522b11f09ad3000c29d1a431",
+            "kb_ids": [
+                "37e5c164522811f0a6b8000c29d1a431"
+            ],
+            "kb_names": [
+                "\u56fd\u5185\u673a\u7968"
+            ],
+            "language": "English",
+            "llm_id": "qwen-plus@Tongyi-Qianwen",
+            "llm_setting": {},
+            "name": "\u56fd\u5185\u673a\u7968\u653f\u7b56\u52a9\u7406",
+            "prompt_config": {
+                "empty_response": "",
+                "keyword": true,
+                "parameters": [
+                    {
+                        "key": "knowledge",
+                        "optional": false
+                    }
+                ],
+                "prologue": "\u4f60\u597d\uff01 \u6211\u662f\u4f60\u5417\uff1f",
+                "quote": true,
+                "reasoning": false,
+                "refine_multiturn": false,
+                "system": "\u4f60\u662f\u4e00\u4e2a\u56fd\u5185\u673a\u7e93\u3002",
+                "tts": false,
+                "use_kg": false
+            },
+            "prompt_type": "simple",
+            "rerank_id": "",
+            "similarity_threshold": 0.2,
+            "status": "1",
+            "tenant_id": "e08c2142481511f0b121010101010000",
+            "top_k": 1024,
+            "top_n": 8,
+            "update_date": "Thu, 26 Jun 2025 09:15:30 GMT",
+            "update_time": 1750900530757,
+            "vector_similarity_weight": 0.3
+        }
+    ],
+    "message": "success"
+}
+
+
+
+http://127.0.0.1/v1/tenant/list
+  请求方法：get
+  请求参数：无
+  应答参数：
+{
+    "code": 0,
+    "data": [
+        {
+            "avatar": "data:image/png;base64,iVBORw0KGgoA.....AASUVORK5CYII=",
+            "delta_seconds": 3566.120275,
+            "email": "liuyuan@fabc.com",
+            "nickname": "liuyuan",
+            "role": "normal",
+            "tenant_id": "e08c2142481511f0b121010101010000",
+            "update_date": "Mon, 30 Jun 2025 17:07:57 GMT"
+        }
+    ],
+    "message": "success"
+}
+
+
+http://127.0.0.1/v1/dialog/get?dialog_id=0d3bb0a6522b11f09ad3000c29d1a431
+  请求方法：get
+  请求参数：dialog_id
+  应答参数：
+{
+    "code": 0,
+    "data": {
+        "create_date": "Thu, 26 Jun 2025 09:15:30 GMT",
+        "create_time": 1750900530757,
+        "description": "A helpful dialog",
+        "do_refer": "1",
+        "icon": "",
+        "id": "0d3bb0a6522b11f09ad3000c29d1a431",
+        "kb_ids": [
+            "37e5c164522811f0a6b8000c29d1a431"
+        ],
+        "kb_names": [
+            "\u56fd\u5185\u673a\u7968"
+        ],
+        "language": "English",
+        "llm_id": "qwen-plus@Tongyi-Qianwen",
+        "llm_setting": {},
+        "name": "\u56fd\u5185\u673a\u7968\u653f\u7b56\u52a9\u7406",
+        "prompt_config": {
+            "empty_response": "",
+            "keyword": true,
+            "parameters": [
+                {
+                    "key": "knowledge",
+                    "optional": false
+                }
+            ],
+            "prologue": "\u4f60\u597d\uff01 \u6211\u662f\u4f60\u7684\u52a9\u7406\uff0c\u6709\u4ec0\u4e48\u53ef\u4ee5\u5e2e\u5230\u4f60\u7684\u5417\uff1f",
+            "quote": true,
+            "reasoning": false,
+            "refine_multiturn": false,
+            "system": "\u4f60\u662f\u4e00\u3002\n        \u4ee5\u4e0b\u662f\u77e5\u8bc6\u5e93\uff1a\n        {knowledge}\n        \u4ee5\u4e0a\u662f\u77e5\u8bc6\u5e93\u3002",
+            "tts": false,
+            "use_kg": false
+        },
+        "prompt_type": "simple",
+        "rerank_id": "",
+        "similarity_threshold": 0.2,
+        "status": "1",
+        "tenant_id": "e08c2142481511f0b121010101010000",
+        "top_k": 1024,
+        "top_n": 8,
+        "update_date": "Thu, 26 Jun 2025 09:15:30 GMT",
+        "update_time": 1750900530757,
+        "vector_similarity_weight": 0.3
+    },
+    "message": "success"
+}
+
+
+
+http://127.0.0.1/v1/conversation/list?dialog_id=0d3bb0a6522b11f09ad3000c29d1a431
+  请求方法：get
+  请求参数：dialog_id
+  应答参数：{
+    "code": 0,
+    "data": [
+        {
+            "create_date": "Mon, 30 Jun 2025 22:47:24 GMT",
+            "create_time": 1751294844221,
+            "dialog_id": "0d3bb0a6522b11f09ad3000c29d1a431",
+            "id": "d0ec8a67af064b2d8a396cf33bce2377",
+            "message": [
+                {
+                    "content": "\u4f60\u597d\uff01 \u6211u7684\u5417\uff1f",
+                    "role": "assistant"
+                },
+                {
+                    "content": "48\u5c0f\u65f6\u5185\u9000\u7968\uff0c\u5982\u4f55\u5904\u7406",
+                    "doc_ids": [],
+                    "id": "46cea227-60d8-4edc-bdf5-416acbcd52b5",
+                    "role": "user"
+                },
+                {
+                    "content": "48\u5c0f\u65f6\u5185\u9000u5219\u3002",
+                    "created_at": 1751294855.8851023,
+                    "id": "46cea227-60d8-4edc-bdf5-416acbcd52b5",
+                    "role": "assistant"
+                }
+            ],
+            "name": "48\u5c0f\u65f6\u5185\u9000\u7968\uff0c\u5982\u4f55\u5904\u7406\u554a\u554a",
+            "reference": [
+                {
+                    "chunks": [
+                        {
+                            "content": "\u4ee5\u4e0b......",
+                            "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                            "doc_type": "",
+                            "document_id": "95c1b1ee522d11f097e3000c29d1a431",
+                            "document_name": "20241223 SC \u4e1a\u52a1\u901a...\u4ef6(20250101).md",
+                            "id": "2e88bef0daa08039",
+                            "image_id": "",
+                            "positions": [],
+                            "similarity": 0.7602817697873265,
+                            "term_similarity": 0.8406851686464784,
+                            "url": null,
+                            "vector_similarity": 0.5726738391159725
+                        },
+                        {
+                            "content": "\u4ee5\u4e0b...\u636e\u3002",
+                            "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                            "doc_type": "",
+                            "document_id": "95c96650522d11f097e3000c29d1a431",
+                            "document_name": "20250306 Y8 \u91d1...\u901a\u544a.md",
+                            "id": "4883a2b82dbde0b4",
+                            "image_id": "",
+                            "positions": [],
+                            "similarity": 0.7335284432117006,
+                            "term_similarity": 0.8406851686464784,
+                            "url": null,
+                            "vector_similarity": 0.4834960838638862
+                        },
+                        {
+                            "content": "\u4ee5..u542b\uff09**\uff1a70%\uff1b\n  - ...\u3002",
+                            "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                            "doc_type": "",
+                            "document_id": "95c80792522d11f097e3000c29d1a431",
+                            "document_name": "20250306 Y8 \u300a\...u544a.md",
+                            "id": "ad9e8e4f6ef58f52",
+                            "image_id": "",
+                            "positions": [],
+                            "similarity": 0.7295932062720982,
+                            "term_similarity": 0.8406851686464784,
+                            "url": null,
+                            "vector_similarity": 0.47037862739854497
+                        },
+                        {
+                            "content": "\u4ee5\u4e0b\...\u3002",
+                            "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                            "doc_type": "",
+                            "document_id": "95c96650522d11f097e3000c29d1a431",
+                            "document_name": "20250306 Y8 \u91d1\...u901a\u544a.md",
+                            "id": "321b1ba0a209e548",
+                            "image_id": "",
+                            "positions": [],
+                            "similarity": 0.7206417807867256,
+                            "term_similarity": 0.8406851686464784,
+                            "url": null,
+                            "vector_similarity": 0.44054054244730245
+                        },
+                        {
+                            "content": "\u4ee5\u4e0b...\u9020\u3002**",
+                            "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                            "doc_type": "",
+                            "document_id": "95cfad58522d11f097e3000c29d1a431",
+                            "document_name": "shandong_1.md",
+                            "id": "db3260a76d0ff0dc",
+                            "image_id": "",
+                            "positions": [],
+                            "similarity": 0.709584113739441,
+                            "term_similarity": 0.7723582369539453,
+                            "url": null,
+                            "vector_similarity": 0.5631111595722641
+                        },
+                        {
+                            "content": "\u4ee5\u4e0b...\u3002**",
+                            "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                            "doc_type": "",
+                            "document_id": "95cfad58522d11f097e3000c29d1a431",
+                            "document_name": "shandong_1.md",
+                            "id": "4210822e8d2b32a8",
+                            "image_id": "",
+                            "positions": [],
+                            "similarity": 0.7069472011646597,
+                            "term_similarity": 0.7723582369539453,
+                            "url": null,
+                            "vector_similarity": 0.55432145098966
+                        },
+                        {
+                            "content": "\u4ee5\u4e0b...\u3002",
+                            "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                            "doc_type": "",
+                            "document_id": "95ddee68522d11f097e3000c29d1a431",
+                            "document_name": "\u4e2d\u8054\u822a.md",
+                            "id": "868f5bec207d4f73",
+                            "image_id": "",
+                            "positions": [],
+                            "similarity": 0.6987529787608726,
+                            "term_similarity": 0.7723582369539453,
+                            "url": null,
+                            "vector_similarity": 0.5270073763103698
+                        },
+                        {
+                            "content": "\u4e...u7f16\u9020\u3002**",
+                            "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                            "doc_type": "",
+                            "document_id": "95cfad58522d11f097e3000c29d1a431",
+                            "document_name": "shandong_1.md",
+                            "id": "12ac6a08204b314f",
+                            "image_id": "",
+                            "positions": [],
+                            "similarity": 0.6938593674846437,
+                            "term_similarity": 0.7723582369539453,
+                            "url": null,
+                            "vector_similarity": 0.51069533872294
+                        }
+                    ],
+                    "doc_aggs": [
+                        {
+                            "count": 3,
+                            "doc_id": "95cfad58522d11f097e3000c29d1a431",
+                            "doc_name": "shandong_1.md"
+                        },
+                        {
+                            "count": 1,
+                            "doc_id": "95c80792522d11f097e3000c29d1a431",
+                            "doc_name": "20250306 Y8 \u300a\u91d1\...901a\u544a.md"
+                        },
+                        {
+                            "count": 1,
+                            "doc_id": "95ddee68522d11f097e3000c29d1a431",
+                            "doc_name": "\u4e2d\u8054\u822a.md"
+                        }
+                    ],
+                    "total": 63
+                }
+            ],
+            "update_date": "Mon, 30 Jun 2025 22:52:05 GMT",
+            "update_time": 1751295125884,
+            "user_id": "de9f5c834e69421083ceb2cb9641d241"
+        }
+    ],
+    "message": "success"
+}
+
+
+http://127.0.0.1/v1/conversation/completion
+  请求方法：post
+  请求参数：
+{
+  "conversation_id": "4f248dd6e67b4bbbbaf47cef01efa238",
+  "messages": [
+    {
+      "content": "你好！ 我是你的助理，有什么可以帮到你的吗？",
+      "role": "assistant"
+    },
+    {
+      "id": "eec6ba99-0d1c-4177-8c74-5f5bf4fc566b",
+      "content": "阿拉伯通票如何退票",
+      "role": "user",
+      "doc_ids": []
+    }
+  ]
+}
+应答参数：
+   eventStream:
+      {"code": 0, "message": "", "data": {"answer": "根据阿拉伯通票的退票条款，退票规定", "reference": {"chunks": []}, "audio_binary": null, "id": "eec6ba99-0d1c-4177-8c74-5f5bf4fc566b", "session_id": "4f248dd6e67b4bbbbaf47cef01efa238"}}
+      {"code": 0, "message": "", "data": {"answer": "根据阿拉伯通票的退票条款，退票规定如下：\n\n### **起飞前退票**\n- F舱", "reference": {"chunks": []}, "audio_binary": null, "id": "eec6ba99-0d1c-4177-8c74-5f5bf4fc566b", "session_id": "4f248dd6e67b4bbbbaf47cef01efa238"}}
+      ...
+      {"code": 0, "message": "", "data": true}	
+
+
+
+http://127.0.0.1/v1/document/thumbnails?doc_ids=83a655f4522911f08abb000c29d1a431
+  请求方法：get
+  请求参数：doc_ids
+  应答参数：
+{"code":0,"data":{"83a655f4522911f08abb000c29d1a431":""},"message":"success"}
+
+http://127.0.0.1/v1/conversation/get?conversation_id=4f248dd6e67b4bbbbaf47cef01efa238
+  请求方法：get
+  请求参数：conversation_id
+  应答参数：
+{
+    "code": 0,
+    "data": {
+        "avatar": "",
+        "create_date": "Mon, 30 Jun 2025 21:08:10 GMT",
+        "create_time": 1751288890799,
+        "dialog_id": "0d3bb0a6522b11f09ad3000c29d1a431",
+        "id": "4f248dd6e67b4bbbbaf47cef01efa238",
+        "message": [
+            {
+                "content": "\u4f60\u597d\uff01 \u6211\u662f\u4f60\u7684\u52a9\u7406\uff0c\u6709\u4ec0\u4e48\u53ef\u4ee5\u5e2e\u5230\u4f60\u7684\u5417\uff1f",
+                "role": "assistant"
+            },
+            {
+                "content": "\u963f\u62c9\u4f2f\u901a\u7968\u5982\u4f55\u9000\u7968",
+                "doc_ids": [],
+                "id": "eec6ba99-0d1c-4177-8c74-5f5bf4fc566b",
+                "role": "user"
+            },
+            {
+                "content": "\u6839\u...u7528\u4fe1\u606f\u3002",
+                "created_at": 1751288899.4836457,
+                "id": "eec6ba99-0d1c-4177-8c74-5f5bf4fc566b",
+                "role": "assistant"
+            }
+        ],
+        "name": "\u963f\u62c9\u4f2f\u901a\u7968\u5982\u4f55\u9000\u7968",
+        "reference": [
+            {
+                "chunks": [
+                    {
+                        "content": "\u4ee5\...\u3002",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "83a655f4522911f08abb000c29d1a431",
+                        "document_name": "\u963f\u62c9\u4f2f\u901a\u7968.md",
+                        "id": "816d665933703d24",
+                        "image_id": "",
+                        "positions": []
+                    },
+                    {
+                        "content": "\u4ee5...84Tour Code\u3002",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "83a655f4522911f08abb000c29d1a431",
+                        "document_name": "\u963f\u62c9\u4f2f\u901a\u7968.md",
+                        "id": "7fb66a59e701a75a",
+                        "image_id": "",
+                        "positions": []
+                    },
+                    {
+                        "content": "\r### 12. \u9000...\u5165\r",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "83a655f4522911f08abb000c29d1a431",
+                        "document_name": "\u963f\u62c9\u4f2f\u901a\u7968.md",
+                        "id": "e558b689277c8324",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                4,
+                                3,
+                                3,
+                                3,
+                                3
+                            ]
+                        ]
+                    },
+                    {
+                        "content": "# \u963f\...\uff09\r",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "83a655f4522911f08abb000c29d1a431",
+                        "document_name": "\u963f\u62c9\u4f2f\u901a\u7968.md",
+                        "id": "6aaf188a775cfd26",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                2,
+                                1,
+                                1,
+                                1,
+                                1
+                            ]
+                        ]
+                    },
+                    {
+                        "content": "\u4ee5....\u3002",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "83a655f4522911f08abb000c29d1a431",
+                        "document_name": "\u963f\u62c9\u4f2f\u901a\u7968.md",
+                        "id": "279a888c29446c6f",
+                        "image_id": "",
+                        "positions": []
+                    },
+                    {
+                        "content": "- \u82e5\u539f.....u6d4e\u8231\r",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "83a655f4522911f08abb000c29d1a431",
+                        "document_name": "\u963f\u62c9\u4f2f\u901a\u7968.md",
+                        "id": "c24a3e8774fa78c7",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                3,
+                                2,
+                                2,
+                                2,
+                                2
+                            ]
+                        ]
+                    },
+                    {
+                        "content": "2. \u56fd.....\u52a1\u3002\r",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "95ddee68522d11f097e3000c29d1a431",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "bb21a346b901403c",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                5,
+                                4,
+                                4,
+                                4,
+                                4
+                            ]
+                        ]
+                    },
+                    {
+                        "content": "2. \u6765.....\u7684\u5ba2\u7968:\r",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "95cfad58522d11f097e3000c29d1a431",
+                        "document_name": "shandong_1.md",
+                        "id": "74413f834fac5c5c",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                5,
+                                4,
+                                4,
+                                4,
+                                4
+                            ]
+                        ]
+                    }
+                ],
+                "doc_aggs": [
+                    {
+                        "count": 6,
+                        "doc_id": "83a655f4522911f08abb000c29d1a431",
+                        "doc_name": "\u963f\u62c9\u4f2f\u901a\u7968.md"
+                    }
+                ],
+                "total": 63
+            }
+        ],
+        "update_date": "Mon, 30 Jun 2025 21:08:19 GMT",
+        "update_time": 1751288899484,
+        "user_id": "de9f5c834e69421083ceb2cb9641d241"
+    },
+    "message": "success"
+}
+
+
+http://127.0.0.1/v1/conversation/set
+  请求方法：post
+  请求参数：
+{
+  "conversation_id": "d0ec8a67af064b2d8a396cf33bce2377",
+  "name": "48小时内退票，如何处理",
+  "is_new": false
+}
+  应答参数：
+{
+    "code": 0,
+    "data": {
+        "create_date": "Mon, 30 Jun 2025 22:47:24 GMT",
+        "create_time": 1751294844221,
+        "dialog_id": "0d3bb0a6522b11f09ad3000c29d1a431",
+        "id": "d0ec8a67af064b2d8a396cf33bce2377",
+        "message": [
+            {
+                "content": "\u4f60\u597d\uff01 \u6211\...\u7684\u5417\uff1f",
+                "role": "assistant"
+            },
+            {
+                "content": "48\u5c0f\u65f6\u5185\u9000\u7968\uff0c\u5982\u4f55\u5904\u7406",
+                "doc_ids": [],
+                "id": "46cea227-60d8-4edc-bdf5-416acbcd52b5",
+                "role": "user"
+            },
+            {
+                "content": "48\u5c0f\u65f6\....\u5219\u3002",
+                "created_at": 1751294855.8851023,
+                "id": "46cea227-60d8-4edc-bdf5-416acbcd52b5",
+                "role": "assistant"
+            }
+        ],
+        "name": "48\u5c0f\u65f6\u5185\u9000\u7968\uff0c\u5982\u4f55\u5904\u7406\u554a\u554a",
+        "reference": [
+            {
+                "chunks": [
+                    {
+                        "content": "\u4ee5\u4e0b...c6\u3002",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "95c1b1ee522d11f097e3000c29d1a431",
+                        "document_name": "20241223 SC \u...\u4ef6(20250101).md",
+                        "id": "2e88bef0daa08039",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.7602817697873265,
+                        "term_similarity": 0.8406851686464784,
+                        "url": null,
+                        "vector_similarity": 0.5726738391159725
+                    },
+                    {
+                        "content": "\u4ee5\u4e0b\...\u3002",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "95c96650522d11f097e3000c29d1a431",
+                        "document_name": "20250306 Y8 \u91d1\...u52a1\u901a\u544a.md",
+                        "id": "4883a2b82dbde0b4",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.7335284432117006,
+                        "term_similarity": 0.8406851686464784,
+                        "url": null,
+                        "vector_similarity": 0.4834960838638862
+                    },
+                    {
+                        "content": "\u4ee5...3\u3002",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "95c80792522d11f097e3000c29d1a431",
+                        "document_name": "20250306 Y8 \u3...u300b\u7684\u4e1a\u52a1\u901a\u544a.md",
+                        "id": "ad9e8e4f6ef58f52",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.7295932062720982,
+                        "term_similarity": 0.8406851686464784,
+                        "url": null,
+                        "vector_similarity": 0.47037862739854497
+                    },
+                    {
+                        "content": "\u4ee5\u4e0b\...u6570\u636e\u3002",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "95c96650522d11f097e3000c29d1a431",
+                        "document_name": "20250306 Y8 \u91d1\u9e4f...\u901a\u544a.md",
+                        "id": "321b1ba0a209e548",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.7206417807867256,
+                        "term_similarity": 0.8406851686464784,
+                        "url": null,
+                        "vector_similarity": 0.44054054244730245
+                    },
+                    {
+                        "content": "\u4ee5\u4e0b\....020\u3002**",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "95cfad58522d11f097e3000c29d1a431",
+                        "document_name": "shandong_1.md",
+                        "id": "db3260a76d0ff0dc",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.709584113739441,
+                        "term_similarity": 0.7723582369539453,
+                        "url": null,
+                        "vector_similarity": 0.5631111595722641
+                    },
+                    {
+                        "content": "\u4ee5\u4e0b.......u7f16\u9020\u3002**",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "95cfad58522d11f097e3000c29d1a431",
+                        "document_name": "shandong_1.md",
+                        "id": "4210822e8d2b32a8",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.7069472011646597,
+                        "term_similarity": 0.7723582369539453,
+                        "url": null,
+                        "vector_similarity": 0.55432145098966
+                    },
+                    {
+                        "content": "\u4ee5....0e\u3002",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "95ddee68522d11f097e3000c29d1a431",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "868f5bec207d4f73",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.6987529787608726,
+                        "term_similarity": 0.7723582369539453,
+                        "url": null,
+                        "vector_similarity": 0.5270073763103698
+                    },
+                    {
+                        "content": "\u4ee5\......\u9020\u3002**",
+                        "dataset_id": "37e5c164522811f0a6b8000c29d1a431",
+                        "doc_type": "",
+                        "document_id": "95cfad58522d11f097e3000c29d1a431",
+                        "document_name": "shandong_1.md",
+                        "id": "12ac6a08204b314f",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.6938593674846437,
+                        "term_similarity": 0.7723582369539453,
+                        "url": null,
+                        "vector_similarity": 0.51069533872294
+                    }
+                ],
+                "doc_aggs": [
+                    {
+                        "count": 3,
+                        "doc_id": "95cfad58522d11f097e3000c29d1a431",
+                        "doc_name": "shandong_1.md"
+                    },
+                    {
+                        "count": 1,
+                        "doc_id": "95c80792522d11f097e3000c29d1a431",
+                        "doc_name": "20250306 Y8 \u300a\...5b9a\u300b\u7684\u4e1a\u52a1\u901a\u544a.md"
+                    },
+                    {
+                        "count": 1,
+                        "doc_id": "95ddee68522d11f097e3000c29d1a431",
+                        "doc_name": "\u4e2d\u8054\u822a.md"
+                    }
+                ],
+                "total": 63
+            }
+        ],
+        "update_date": "Mon, 30 Jun 2025 22:52:05 GMT",
+        "update_time": 1751295125884,
+        "user_id": "de9f5c834e69421083ceb2cb9641d241"
+    },
+    "message": "success"
+}
+
+http://127.0.0.1/v1/conversation/rm
+  请求方法：post
+  请求参数：
+{
+  "conversation_ids": [
+    "4f248dd6e67b4bbbbaf47cef01efa238"
+  ],
+  "dialog_id": "0d3bb0a6522b11f09ad3000c29d1a431"
+}
+  应答参数：
+{"code":0,"data":true,"message":"success"}
+
+
+http://127.0.0.1:8083/rag/v1/conversation/delete_msg
+请求方法：post
+请求参数：{
+  "message_id": "8b98b8b8-463b-44b4-b3c4-b7aba2be3d42",
+  "conversation_id": "657107c7a044439089ac902115067d01"
+}
+应答参数：
+{
+    "code": 0,
+    "data": {
+        "create_date": "Wed, 18 Jun 2025 20:57:55 GMT",
+        "create_time": 1750251475386,
+        "dialog_id": "9fc361f2499d11f0bee540a5ef52b7e9",
+        "id": "657107c7a044439089ac902115067d01",
+        "message": [
+            {
+                "content": "\u4f60\u597d\...f60\u7684\u5417\uff1f",
+                "id": "43dd173a-12c4-4b56-addd-59a86323e318",
+                "role": "assistant"
+            },
+            {
+                "content": "C\u8231\u9000\u7968\u662f\u5982\u4f55\u89c4\u5b9a\u7684",
+                "doc_ids": [],
+                "id": "fab975d1-0d16-4470-a451-c258aa107005",
+                "role": "user"
+            },
+            {
+                "content": "<think>\u597d\u7684\....u7528\u3002",
+                "created_at": 1750322999.2931914,
+                "id": "fab975d1-0d16-4470-a451-c258aa107005",
+                "role": "assistant",
+                "thumbup": true
+            }
+        ],
+        "name": "\u4e1c\u6d77\u822a\u7a7a\u9000\u7968\u7684\u89c4\u5b9a",
+        "reference": [
+            {
+                "chunks": [
+                    {
+                        "content": "<table>\n<thead>\n<tr>\n<th>\u4ea7\u54c1\u5305</th>\n<th>\u8231\u4f4d\u4ee3\u7801</th>\n....\n</tr>\n</tbody>\n</table>",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "4dac6674b5dee112",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.3097806170795984,
+                        "term_similarity": 0.1452830305396354,
+                        "url": null,
+                        "vector_similarity": 0.6936083190061789
+                    },
+                    {
+                        "content": "<table>\n<thead>\n<tr>\n...\n</tr>\n</tbody>\n</table>",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "af733f814488dfb5",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.30305807506666066,
+                        "term_similarity": 0.1452830305396354,
+                        "url": null,
+                        "vector_similarity": 0.6711998456297197
+                    },
+                    {
+                        "content": "\u8be5\u6bb5...\u4f53\u8981\u6c42\u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "9fc546a2bed6377b",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.3013342055134972,
+                        "term_similarity": 0.14445339794068557,
+                        "url": null,
+                        "vector_similarity": 0.667389423183391
+                    },
+                    {
+                        "content": "\r### 6. \u4f7f\u7528\....u6587\u4ef6\u4e4b\u4e00:\r",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "d869ae703bd29d92",
+                        "image_id": "",
+                        "positions": [
+                            [
+                                4,
+                                3,
+                                3,
+                                3,
+                                3
+                            ]
+                        ],
+                        "similarity": 0.29891201268226575,
+                        "term_similarity": 0.14445339794068557,
+                        "url": null,
+                        "vector_similarity": 0.6593154470792861
+                    },
+                    {
+                        "content": "### \u4e2d\u8054\...\u5f02\u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "4a64d147c9e5b4e1",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.2985661830087222,
+                        "term_similarity": 0.1452830305396354,
+                        "url": null,
+                        "vector_similarity": 0.656226872103258
+                    },
+                    {
+                        "content": "### \u4e2d\u8054\......u5f02\u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "fcdd5e8f86074d57",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.2980219381354718,
+                        "term_similarity": 0.1452830305396354,
+                        "url": null,
+                        "vector_similarity": 0.6544127225257568
+                    },
+                    {
+                        "content": "### \u4e2d\u8054\...u7eed\u8d39\u4e0d\u9000\u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "f8ee70f029108f5c",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.2938313957065515,
+                        "term_similarity": 0.14445339794068557,
+                        "url": null,
+                        "vector_similarity": 0.6423800571602387
+                    },
+                    {
+                        "content": "### \u4e2d\u8054\...u3002\n\n#### 8. **\u7279\u6b8a\u60c5\u51b5u3002",
+                        "dataset_id": "065827d4481a11f09932010101010000",
+                        "doc_type": "",
+                        "document_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "document_name": "\u4e2d\u8054\u822a.md",
+                        "id": "6679fe8e46324543",
+                        "image_id": "",
+                        "positions": [],
+                        "similarity": 0.2916972490672405,
+                        "term_similarity": 0.1452830305396354,
+                        "url": null,
+                        "vector_similarity": 0.6333304256316523
+                    }
+                ],
+                "doc_aggs": [
+                    {
+                        "count": 8,
+                        "doc_id": "7f7bb1d14cbb11f0bb36010101010000",
+                        "doc_name": "\u4e2d\u8054\u822a.md"
+                    }
+                ],
+                "total": 19
+            }
+        ],
+        "update_date": "Tue, 01 Jul 2025 09:36:37 GMT",
+        "update_time": 1751333797186,
+        "user_id": "e08c2142481511f0b121010101010000"
+    },
+    "message": "success"
+}
+
+http://127.0.0.1/v1/document/upload_and_parse
+请求方法：post
+请求参数：
+FormData:
+    conversation_id  d0ec8a67af064b2d8a396cf33bce2377
+    file (binary)
+应答参数：{"code":0,"data":["f945da9e561d11f08a2d000c29d1a431"],"message":"success"}
+
+
+http://127.0.0.1/v1/document/infos
+请求方法：post
+请求参数：{doc_ids: ["f945da9e561d11f08a2d000c29d1a431"]}
+应答参数：
+{
+    "code": 0,
+    "data": [
+        {
+            "chunk_num": 2,
+            "create_date": "Tue, 01 Jul 2025 09:51:58 GMT",
+            "create_time": 1751334718463,
+            "created_by": "e08c2142481511f0b121010101010000",
+            "id": "f945da9e561d11f08a2d000c29d1a431",
+            "kb_id": "37e5c164522811f0a6b8000c29d1a431",
+            "location": "\u963f\u62c9\u4f2f\u901a\u7968(1).md",
+            "meta_fields": {},
+            "name": "\u963f\u62c9\u4f2f\u901a\u7968(1).md",
+            "parser_config": {
+                "auto_keywords": 5,
+                "auto_questions": 5,
+                "chunk_token_num": 1222,
+                "delimiter": "\n",
+                "graphrag": {
+                    "use_graphrag": false
+                },
+                "html4excel": false,
+                "layout_recognize": "qwen-vl-plus@Tongyi-Qianwen",
+                "raptor": {
+                    "max_cluster": 64,
+                    "max_token": 1254,
+                    "prompt": "\u8bf7\u603b\u7ed3\...u5185\u5bb9\u3002",
+                    "random_seed": 7432,
+                    "threshold": 0.1,
+                    "use_raptor": true
+                }
+            },
+            "parser_id": "naive",
+            "process_begin_at": null,
+            "process_duation": 0.0,
+            "progress": 0.0,
+            "progress_msg": "",
+            "run": "0",
+            "size": 5933,
+            "source_type": "local",
+            "status": "1",
+            "thumbnail": "",
+            "token_num": 2730,
+            "type": "doc",
+            "update_date": "Tue, 01 Jul 2025 09:52:47 GMT",
+            "update_time": 1751334767020
+        }
+    ],
+    "message": "success"
+}
+
+
+
+

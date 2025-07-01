@@ -82,7 +82,7 @@ export const useShowBetaEmptyError = () => {
 
 const getUrlWithToken = (token: string, from: string = 'chat') => {
   const { protocol, host } = window.location;
-  return `${protocol}//${host}/chat/share?shared_id=${token}&from=${from}`;
+  return `${protocol}//${host}/rag/chat/share?shared_id=${token}&from=${from}`;
 };
 
 const useFetchTokenListBeforeOtherStep = () => {

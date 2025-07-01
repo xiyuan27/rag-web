@@ -13,7 +13,21 @@ const storage = {
     return localStorage.getItem(UserInfo);
   },
   getUserInfoObject: () => {
-    return JSON.parse(localStorage.getItem('userInfo') || '');
+    try {
+      return JSON.parse(localStorage.getItem('userInfo') || '{}');
+    } catch (e) {
+      return {};
+    }
+  },
+  getUserRole: (): string | undefined => {
+    try {
+      return JSON.parse(localStorage.getItem('userInfo') || '{}').role;
+    } catch (e) {
+      return undefined;
+    }
+  },
+  isNormalRole: () => {
+    return storage.getUserRole() === 'normal';
   },
   setAuthorization: (value: string) => {
     localStorage.setItem(Authorization, value);
@@ -59,5 +73,5 @@ export default storage;
 
 // Will not jump to the login page
 export function redirectToLogin() {
-  window.location.href = location.origin + `/login`;
+  window.location.href = location.origin + `/rag/login`;
 }

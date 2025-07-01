@@ -255,6 +255,11 @@ export default {
       <p>
       <li>Use vision detection model to split the texts into smaller segments.</li>
       <li>Then, combine adjacent segments until the token count exceeds the threshold specified by 'Chunk token number for text', at which point a chunk is created.</li></p>`,
+      mdchapter: `<p>Supported file formats are <b>MD</b>.</p>
+      <p>This method applies a chapter-based approach to chunk Markdown files:</p>
+      <p>
+      <li>Use Markdown structure detection to identify chapter and section boundaries.</li>
+      <li>Split content based on heading levels and logical sections while preserving context.</li></p>`,
       paper: `<p>Only <b>PDF</b> file is supported.</p><p>
       Papers will be split by section, such as <i>abstract, 1.1, 1.2</i>. </p><p>
       This approach enables the LLM to summarize the paper more effectively and to provide more comprehensive, understandable responses. 

@@ -9,7 +9,7 @@ import { useCallback } from 'react';
 import useGraphStore from '../../store';
 import styles from './index.less';
 
-loader.config({ paths: { vs: '/vs' } });
+loader.config({ paths: { vs: '/rag/vs' } });
 
 const options = [
   ProgrammingLanguage.Python,

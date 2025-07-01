@@ -50,7 +50,7 @@ const MessageItem = ({
   removeMessageById,
   regenerateMessage,
   showLikeButton = true,
-  showLoudspeaker = true,
+  showLoudspeaker = false,
   visibleAvatar = true,
 }: IProps) => {
   const { theme } = useTheme();

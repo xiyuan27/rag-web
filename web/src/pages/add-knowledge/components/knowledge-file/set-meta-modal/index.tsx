@@ -7,7 +7,7 @@ import DOMPurify from 'dompurify';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-loader.config({ paths: { vs: '/vs' } });
+loader.config({ paths: { vs: '/rag/vs' } });
 
 type FieldType = {
   meta?: string;

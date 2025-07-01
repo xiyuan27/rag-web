@@ -69,6 +69,7 @@ export const useLogin = () => {
           avatar: data.avatar,
           name: data.nickname,
           email: data.email,
+          role: data.role,
         };
         authorizationUtil.setItems({
           Authorization: authorization,
@@ -128,7 +129,10 @@ export const useLogout = () => {
       if (data.code === 0) {
         message.success(t('message.logout'));
         authorizationUtil.removeAll();
-        redirectToLogin();
+        // 延迟重定向，确保认证状态已清除
+        setTimeout(() => {
+          redirectToLogin();
+        }, 100);
       }
       return data.code;
     },

@@ -62,7 +62,7 @@ const DocumentPreviewer = ({ chunk, documentId, visible }: IProps) => {
       <PdfLoader
         url={url}
         beforeLoad={<Skeleton active />}
-        workerSrc="/pdfjs-dist/pdf.worker.min.js"
+        workerSrc="/rag/pdfjs-dist/pdf.worker.min.js"
         errorMessage={<FileError>{error}</FileError>}
       >
         {(pdfDocument) => {

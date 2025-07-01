@@ -29,7 +29,7 @@ import {
   useWatchFormChange,
 } from './use-watch-change';
 
-loader.config({ paths: { vs: '/vs' } });
+loader.config({ paths: { vs: '/rag/vs' } });
 
 const options = [
   ProgrammingLanguage.Python,

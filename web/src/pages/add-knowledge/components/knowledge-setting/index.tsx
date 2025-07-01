@@ -12,8 +12,11 @@ import styles from './index.less';
 const { Title } = Typography;
 
 const Configuration = () => {
+  console.log('🔥🔥🔥 Configuration 组件已渲染 - VERSION 005 🔥🔥🔥');
+  console.log('[mdChapter问题排查] Configuration 组件开始');
   const loading = useSelectKnowledgeDetailsLoading();
   const { form, chunkMethod } = useHandleChunkMethodChange();
+  console.log('[mdChapter问题排查] chunkMethod 值:', chunkMethod);
   const { t } = useTranslate('knowledgeConfiguration');
 
   return (

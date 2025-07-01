@@ -17,4 +17,5 @@ export const ImageMap = {
   one: getImageName('one', 2),
   knowledge_graph: getImageName('knowledge-graph', 2),
   tag: getImageName('tag', 2),
+  mdchapter: getImageName('naive', 2), // 复用 naive 的图片
 };

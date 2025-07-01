@@ -65,7 +65,7 @@ const RightToolBar = () => {
   }, [setTheme]);
 
   const handleBellClick = useCallback(() => {
-    navigate('/user-setting/team');
+    navigate('/rag/user-setting/team');
   }, [navigate]);
 
   return (
@@ -77,6 +77,14 @@ const RightToolBar = () => {
             <DownOutlined />
           </Space>
         </Dropdown>
+        {/* 隐藏GitHub图标 */}
+        {/* <Circle>
+          <GithubOutlined onClick={handleGithubCLick} />
+        </Circle> */}
+        {/* 隐藏Help图标 */}
+        {/* <Circle>
+          <CircleHelp className="size-4" onClick={handleDocHelpCLick} />
+        </Circle> */}
         <Circle>
           {theme === 'dark' ? (
             <MoonIcon onClick={onMoonClick} size={20} />

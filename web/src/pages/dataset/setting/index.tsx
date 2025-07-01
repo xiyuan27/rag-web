@@ -31,31 +31,30 @@ const enum MethodValue {
 }
 
 export default function DatasetSettings() {
+  console.log('🔥🔥🔥 DatasetSettings 组件已渲染 - VERSION 004 🔥🔥🔥');
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
+      description: '',
+      avatar: undefined,
       parser_id: DocumentParserType.Naive,
+      embd_id: '',
       permission: 'me',
       parser_config: {
-        layout_recognize: DocumentType.DeepDOC,
+        layout_recognize: true,
         chunk_token_num: 512,
         delimiter: `\n`,
         auto_keywords: 0,
         auto_questions: 0,
         html4excel: false,
+        tag_kb_ids: [],
         topn_tags: 3,
         raptor: {
           use_raptor: false,
-          max_token: 256,
-          threshold: 0.1,
-          max_cluster: 64,
-          random_seed: 0,
         },
         graphrag: {
           use_graphrag: false,
-          entity_types: initialEntityTypes,
-          method: MethodValue.Light,
         },
       },
       pagerank: 0,
@@ -75,6 +74,9 @@ export default function DatasetSettings() {
 
   return (
     <section className="p-5 ">
+      <div style={{ background: 'lime', padding: '10px', margin: '10px 0' }}>
+        TEST VERSION 003 - 代码已更新
+      </div>
       <TopTitle
         title={'Configuration'}
         description={`  Update your knowledge base configuration here, particularly the chunk
